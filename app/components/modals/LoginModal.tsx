@@ -6,7 +6,6 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
 
 import useLoginModal from '@/app/hooks/useLoginModal';
-import useRegisterModal from '@/app/hooks/useRegisterModel';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import { AiFillGithub } from 'react-icons/ai';
@@ -17,7 +16,6 @@ import Modal from './Modal';
 
 const LoginModal = () => {
   const router = useRouter();
-  const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -93,9 +91,9 @@ const LoginModal = () => {
       />
       <div className="text-neutral-500 text-center mt-4 font-light">
         <div className="flex flex-row items-center justify-center gap-2">
-          <div>Already have an account?</div>
+          <div>Dont have an account?</div>
           <div
-            onClick={registerModal.onClose}
+            onClick={loginModal.onClose}
             className="text-rose-500 cursor-pointer hover:underline"
           >
             Login
