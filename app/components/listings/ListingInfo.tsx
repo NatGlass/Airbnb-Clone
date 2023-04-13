@@ -7,6 +7,7 @@ import useCountries from '@/app/hooks/useCountries';
 import { SafeUser } from '@/app/types';
 
 import Avatar from '../Avatar';
+import ListingCategory from './ListingCategory';
 
 const Map = dynamic(() => import('../Map'), {
   ssr: false,
@@ -72,6 +73,16 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
           <div>{bathroomCount} bathrooms</div>
         </div>
       </div>
+      <hr />
+      {category && (
+        <ListingCategory
+          icon={category.icon}
+          label={category.label}
+          description={category.description}
+        />
+      )}
+      <hr />
+      <div className="text-lg font-light text-neutral-500">{description}</div>
       <hr />
       <Map center={coordinates} />
     </div>
