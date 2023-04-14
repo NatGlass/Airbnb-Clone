@@ -13,18 +13,13 @@ export interface IListingsParams {
 
 export default async function getListings(params: IListingsParams) {
   try {
-    const {
-      userId,
-      roomCount,
-      guestCount,
-      bathroomCount,
-      locationValue,
-      startDate,
-      endDate,
-      category,
-    } = params;
+    const { userId } = params;
 
     let query: any = {};
+
+    if (userId) {
+      query.userId = userId;
+    }
 
     const listings = await prisma.listing.findMany({
       where: query,
